@@ -1,0 +1,6 @@
+SELECT p.id_paciente, p.nombre_paciente, t.tipo_tratamiento,  MAX(t.fecha_tratamiento) AS tratamiento_mas_reciente
+FROM pacientes p 
+INNER JOIN tratamientos t 
+ON p.id_paciente = t.id_paciente_fk
+GROUP BY p.id_paciente
+ORDER BY tratamiento_mas_reciente DESC LIMIT 1;
