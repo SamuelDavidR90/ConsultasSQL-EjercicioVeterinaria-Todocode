@@ -1,0 +1,6 @@
+SELECT p.nombre_paciente, COUNT(t.tipo_tratamiento) AS cant_tratamientos
+FROM pacientes p 
+INNER JOIN tratamientos t 
+ON p.id_paciente = t.id_paciente_fk
+GROUP BY p.id_paciente
+ORDER BY cant_tratamientos DESC LIMIT 1;
